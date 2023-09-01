@@ -1,0 +1,27 @@
+name: Ceedling Test
+
+on:  
+  push:
+    branches: [ "main" ]
+    
+  pull_request:
+    branches: [ "main" ] # Defina os eventos que acionarão o fluxo de trabalho
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Escolha o sistema operacional para executar os testes
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Passo para fazer o checkout do código
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1  # Passo para configurar a versão do Ruby (necessária para o Ceedling)
+      with:
+        ruby-version: 2.7.0p0 # Escolha a versão do Ruby necessária
+
+    - name: Install Ceedling
+      run: gem install ceedling  # Passo para instalar o Ceedling
+
+    - name: Run Tests
+      run: ceedling test:all  # Passo para executar todos os testes usando o Ceedling
