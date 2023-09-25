@@ -52,35 +52,3 @@ void test_MaxValue(void){
    ), (UNITY_UINT)(26));
 
 }
-
-
-
-void test_MinValue(void){
-
-    uint8_t tempRegisterAddress = 0x03;
-
-    float expectedTemperature = -100.0f;
-
-    float tolerance = 0.1f;
-
-
-
-
-
-    i2c_readRegister_CMockExpectAndReturn(35, tempRegisterAddress, 0x0);
-
-
-
-
-
-
-
-    float actualTemperature = tempSensor_getTemperature();
-
-    UnityAssertFloatsWithin((UNITY_FLOAT)((tolerance)), (UNITY_FLOAT)((expectedTemperature)), (UNITY_FLOAT)((actualTemperature)), (
-
-   ((void *)0)
-
-   ), (UNITY_UINT)(40));
-
-}

@@ -13,7 +13,6 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_MaxValue(void);
-extern void test_MinValue(void);
 
 
 /*=======Mock Management=====*/
@@ -82,7 +81,6 @@ int main(void)
 {
   UnityBegin("test_tempSensor.c");
   run_test(test_MaxValue, "test_MaxValue", 15);
-  run_test(test_MinValue, "test_MinValue", 29);
 
   CMock_Guts_MemFreeFinal();
   return UnityEnd();
